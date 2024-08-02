@@ -9,3 +9,8 @@ h1{
 .username{
     font-style: italic;
 }
+
+a{
+    text-decoration: none;
+    color: black;
+}

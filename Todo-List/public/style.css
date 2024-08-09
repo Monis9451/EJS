@@ -22,7 +22,6 @@
 
 .done li{
     list-style-type: none;
-    text-decoration: line-through;
 }
 
 .input[type="checkbox"] {
@@ -53,7 +52,7 @@
 }
 
 .input[type="checkbox"]:checked + .custom-checkbox::after{
-    opacity: 1;
+    opacity: 1; 
 }
 
 .doneText
@@ -67,11 +66,34 @@
     border-radius: 15px;
     color: white;
     background-color: black;
+    cursor: pointer;
 }
 
-.edit{
+.edit, .delete{
     font-size: medium;
     border-radius: 15px;
     color: white;
     background-color: black;
+}
+
+.remainingText{
+    display: inline-block;
+    background-color: rgb(230, 230, 230);
+    width: 70%;
+    height:2rem;
+    margin-bottom: 0.5rem;
+    margin-right: 1rem;
+    padding-left: 1.5rem;
+    border-radius: 2rem;
+}
+
+.doneText{display: inline-block;
+    background-color: rgb(230, 230, 230);
+    width: 70%;
+    height:2rem;
+    margin-bottom: 0.5rem;
+    margin-right: 1rem;
+    padding-left: 1.5rem;
+    border-radius: 2rem;
+    text-decoration: line-through;
 }

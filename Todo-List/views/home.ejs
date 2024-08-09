@@ -21,7 +21,7 @@
             <li class="workTodo">
                 <label>
                     <input type="checkbox" class="input"><span class="custom-checkbox"></span>
-                </label><%= item %><button class="edit">Edit</button>
+                </label><div class="remainingText"><%= item %></div><button class="edit">Edit</button>
             </li>
             <% } %>
         </ul>
@@ -35,7 +35,7 @@
             <li class="doneWork">
                 <label>
                     <input type="checkbox" value="on" class="input"><span class="custom-checkbox"></span>
-                </label><div class="doneText"><%= item %></div>
+                </label><div class="doneText"><%= item %></div><button class="delete">Delete</button>
             </li>
             <% } %>
         </ul>

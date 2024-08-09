@@ -17,6 +17,13 @@ app.listen(port,()=>{
 app.get("/",(req, res)=>{
     res.render('home.ejs',{list,doneWork})
 })
-app.post("/add",(req, res)=>{
 
+app.get("/add",(req, res)=>{
+    console.log("This is an art router")
+    res.render('add.ejs')
+})
+
+let addBtn = document.querySelector(".add")
+addBtn.addEventListener("click", ()=>{
+    res.render('/add')
 })

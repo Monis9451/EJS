@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>All users data</title>
+    <style>
+        table,tr,th,td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Detail of all users</h1>
+    <table style="margin-left: auto; margin-right: auto;">
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Edit</th>
+        </tr>
+        <% for(res of result){ %>
+        <tr>
+            <td><%= res.id %></td>
+            <td><%= res.email %></td>
+            <td><%= res.username %></td>
+            <td><form method="GET" action="/user/<%= res.id %>/edit"><button>Edit</button></form></td>
+        </tr>
+        <% } %>
+    </table>
+</body>
+</html>

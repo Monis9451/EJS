@@ -4,13 +4,11 @@ const express = require("express")
 const app = express()
 const port = 8080
 const path = require("path")
+const { count } = require("console")
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname,"views"))
 app.use(express.urlencoded({extended:true}))
-
-app.listen(port,()=>{
-  console.log("The port", port ,"is listening")
-})
+app.use(express.static(path.join(__dirname,"public")))
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -18,6 +16,55 @@ const connection = mysql.createConnection({
     database: 'Delta_app',
     password: 'Monis9451..com'
   });
+
+app.listen(port,()=>{
+  console.log("The port", port ,"is listening")
+})
+
+//Home route
+app.get('/',(req, res)=>{
+  let q = 'SELECT count(*) FROM user'
+    try{
+    connection.query(q, (err, result)=>{
+      if(err) throw err
+      let count = result[0]["count(*)"]
+      res.render('users', {count})
+    })
+  }
+  catch(err){
+    console.log(err)
+    res.send("Some error occurr")
+  }
+})
+
+//Show route
+app.get("/user", (req, res)=>{
+  let q = `SELECT * FROM user`;
+  try{
+    connection.query(q,(err, result)=>{
+      if(err) throw err
+      res.render('show',{result})
+    })
+  }
+  catch(err){
+    console.log(err)
+  }
+})
+
+//Edit route
+app.get('/user/:id/edit', (req, res)=>{
+  let {id} = req.params
+  let q = `SELECT * FROM user WHERE id = '${id}'`
+  try{
+    connection.query(q, (err, result)=>{
+      if(err) throw err
+    })
+  }
+  catch(err){
+    console.log(err)
+  }
+  res.render('edit')
+})
 
   // Inserting new data
   

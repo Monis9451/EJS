@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <title>Edit user info</title>
 </head>
 <body>
-    <h1>Edit the user info</h1>
+    <h1>You are about to edit this user's info: <%= result.email %></h1>
+    <form method="post" action="/user/<%= result.id %>?_method=PATCH">
+        <textarea name="username"><%= result.username %></textarea><br><br>
+        <input type="password" name="password" placeholder="PASSWORD"><br><br>
+        <button>Edit</button>
+    </form>
 </body>
 </html>

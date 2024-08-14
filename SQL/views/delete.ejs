@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Add new user</title>
+</head>
+<body>
+    <h1>Deleting user having id: <%= id %></h1>
+    <br>
+    <form method="post" action="/user/delete/<%= id %>?_method=DELETE">
+        Enter Password to delete: <input name="password" type="password" placeholder="Password">
+        <br><br>
+        <button>Submit</button>
+    </form>
+</body>
+</html>

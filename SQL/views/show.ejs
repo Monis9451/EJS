@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <title>All users data</title>
     <style>
         table,tr,th,td{
@@ -19,6 +19,7 @@
             <th>Email</th>
             <th>Username</th>
             <th>Edit</th>
+            <th>Delete</th>
         </tr>
         <% for(res of result){ %>
         <tr>
@@ -26,6 +27,7 @@
             <td><%= res.email %></td>
             <td><%= res.username %></td>
             <td><form method="GET" action="/user/<%= res.id %>/edit"><button>Edit</button></form></td>
+            <td><form method="GET" action="/user/delete/<%= res.id %>"><button>Delete</button></form></td>
         </tr>
         <% } %>
     </table>

@@ -8,34 +8,35 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mooli&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="header">
+    <div class="header container">
         <h1>Todo-List</h1>
         <hr>
     </div>
-    <div class="list">
+    <div class="list container">
         <h3>Tasks to complete</h3>
         <ul>
-            <% for (item of list){ %>
+            <% for (items of result1){ %>
             <li class="workTodo">
                 <label>
-                    <input type="checkbox" class="input"><span class="custom-checkbox"></span>
-                </label><div class="remainingText"><%= item %></div><button class="edit">Edit</button>
+                    <form><input type="checkbox" class="input"><span class="custom-checkbox"></span></form>&nbsp;&nbsp;
+                </label><div class="remainingText container"><%= items.task %></div><button class="edit">Edit</button>
             </li>
             <% } %>
         </ul>
     </div>
-    <form name="addNew" method="post" action="/add"><button class="add">+Add new</button></form>
+    <form name="addNew" method="get" action="/add"><button class="add">+Add new</button></form>
     <br><hr>
-    <div class="done">
+    <div class="done container">
         <h3>Completed tasks</h3>
         <ul>
-            <% for (item of doneWork){ %>
+            <% for (items of result2){ %>
             <li class="doneWork">
                 <label>
-                    <input type="checkbox" value="on" class="input"><span class="custom-checkbox"></span>
-                </label><div class="doneText"><%= item %></div><button class="delete">Delete</button>
+                    <form><input type="checkbox" value="on" class="input" checked><span class="custom-checkbox"></span></form>&nbsp;&nbsp;
+                </label><div class="doneText container"><%= items.task %></div><button class="delete">Delete</button>
             </li>
             <% } %>
         </ul>

@@ -74,6 +74,7 @@
     border-radius: 15px;
     color: white;
     background-color: black;
+    cursor: pointer;
 }
 
 .remainingText{
@@ -96,4 +97,20 @@
     padding-left: 1.5rem;
     border-radius: 2rem;
     text-decoration: line-through;
+}
+.workTodo{
+    display: flex;
+    align-items: center;
+}
+.doneWork{
+    display: flex;
+    align-items: center;
+}
+.form{
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+.textArea{
+    border-radius: 10px;
 }

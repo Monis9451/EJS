@@ -32,6 +32,10 @@ const User = mongoose.model('User', userSchema)
 
 // user2.save()
 
-User.find({age: {$gt: 40}}).then((res)=>{
+// User.findOne({age: {$gt: 40}}).then((res)=>{
+//     console.log(res.name)
+// })
+
+User.updateOne({name:'Adam'}, {name: "Monis", email: 'monis@yahoo.in',age: 30}).then((res)=>{
     console.log(res)
 })

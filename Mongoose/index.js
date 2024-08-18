@@ -36,6 +36,18 @@ const User = mongoose.model('User', userSchema)
 //     console.log(res.name)
 // })
 
-User.updateOne({name:'Adam'}, {name: "Monis", email: 'monis@yahoo.in',age: 30}).then((res)=>{
+// User.updateOne({name:'Adam'}, {name: "Monis", email: 'monis@yahoo.in',age: 30}).then((res)=>{
+//     console.log(res)
+// })
+
+// User.findByIdAndUpdate('66c0c4949d10cda90c94ebb6', {age: 27}, {new:true}).then((res)=>{
+//     console.log(res)
+// })
+
+User.create({name:'Rohan', email:'rohan@yahoo.in', gender: 'male'}).then((res)=>{
     console.log(res)
 })
+
+// User.findOneAndDelete({name:'Monis'}).then((res)=>{
+//     console.log(res)
+// })

@@ -19,11 +19,18 @@ const bookSchema = new mongoose.Schema({
   },
   price:{
     type:Number,
+  },
+  discount:{
+    type:Number,
+    default:0
   }
 })
 
 const Book = mongoose.model('Book', bookSchema)
 
-Book.create({title:'Mathematics XII', author:"Monis", price: 800}).then((res)=>{
+// Book.create({title:'Mathematics XII', author:"Monis", price: 800}).then((res)=>{
+//   console.log(res)
+// })
+Book.create({title:'Rich Dad Poor Dad', author:"David", price: 999}).then((res)=>{
   console.log(res)
 })

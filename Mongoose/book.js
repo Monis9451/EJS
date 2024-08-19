@@ -19,6 +19,7 @@ const bookSchema = new mongoose.Schema({
   },
   price:{
     type:Number,
+    min:[1, 'Price is too low for amazon selling'],
   },
   discount:{
     type:Number,
@@ -31,6 +32,10 @@ const Book = mongoose.model('Book', bookSchema)
 // Book.create({title:'Mathematics XII', author:"Monis", price: 800}).then((res)=>{
 //   console.log(res)
 // })
-Book.create({title:'Rich Dad Poor Dad', author:"David", price: 999}).then((res)=>{
+Book.create({title:'Try try again', author:"John", price: 0, discount: 99})
+.then((res)=>{
   console.log(res)
+})
+.catch((err)=>{
+  console.log(err.errors.price.properties.message)
 })

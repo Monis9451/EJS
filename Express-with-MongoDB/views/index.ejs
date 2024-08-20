@@ -48,7 +48,7 @@
         <form style="display: inline-block;" method="get" action="/chats/<%= chat._id %>/edit">
             <button class="edit"  style="cursor: pointer; text-align:center; background-color:  dodgerblue; color: white; border-color: white; padding: 5px; border-radius: 10px;">Edit</button>
         </form>
-        <form style="display: inline-block;" method="get" action="/chats/del/<%= chat._id %>?_method=delete">
+        <form style="display: inline-block;" method="post" action="/chats/del/<%= chat._id %>?_method=delete">
             <button class="del"  style="cursor: pointer; text-align:center; background-color:  dodgerblue; color: white; border-color: white; padding: 5px; border-radius: 10px;">Delete</button>
         </form>
     </div>

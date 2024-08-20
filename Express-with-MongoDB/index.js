@@ -3,10 +3,12 @@ const app = express();
 const mongoose = require("mongoose");
 const path = require('path');
 const Chat = require('./models/chat.js')
+const methodOverride = require("method-override")
 
 app.set("views", path.join(__dirname, "views"));
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended:true}))
+app.use(methodOverride("_method"))
 
 main().then(()=>{console.log("Connection successfull")}).catch(err => console.log(err));
 
@@ -44,6 +46,21 @@ app.get('/chats/:id/edit', async(req, res)=>{
     let {id} = req.params;
     let chat = await Chat.findById(id);
     res.render('edit.ejs',{chat});
+})
+
+//update message
+app.put('/chats/:id', async(req, res)=>{
+    let {id} = req.params;
+    let {newMsg} = req.body;
+    await Chat.findByIdAndUpdate(id, {msg: newMsg}, {runValidators:true, new:true});
+    res.redirect('/chats');
+})
+
+//delete message
+app.delete('/chats/del/:id', async(req, res)=>{
+    let {id} = req.params;
+    await Chat.findByIdAndDelete(id).then((res)=>{console.log(res)})
+    res.redirect('/chats')
 })
 
 // Chat.create({from:"Monis", to:'Mohsin', msg:"Uni kab ana ha?", created_at:new Date()})

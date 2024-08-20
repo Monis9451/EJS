@@ -33,14 +33,14 @@
 <body>
     <h1>Edit your chat</h1>
     <div class="chat" style="text-align: center;">
-        <div class="message">
-            <p><b><%= chat.from %></b>: <textarea><%= chat.msg %></textarea> </p>
-        </div>
-        <p>Received by: <i><%= chat.to %></i></p>
-        <hr>
-        <%= chat.created_at.toString().split(" ")[4] %><br>
-        <%= chat.created_at.toString().split(" ").slice(0,4).join(" ") %>
-        <form style="display: inline-block;" method="get" action="/chats/<%= chat._id %>/edit">
+        <form style="display: inline-block;" method="POST" action="/chats/<%= chat._id %>?_method=PUT">
+            <div class="message">
+                <p><b><%= chat.from %></b>: <textarea name="newMsg"><%= chat.msg %></textarea> </p>
+            </div>
+            <p>Received by: <i><%= chat.to %></i></p>
+            <hr>
+            <%= chat.created_at.toString().split(" ")[4] %><br>
+            <%= chat.created_at.toString().split(" ").slice(0,4).join(" ") %>
             <button class="done"  style="cursor: pointer; text-align:center; background-color:  dodgerblue; color: white; border-color: white; padding: 5px; border-radius: 10px;">Done</button>
         </form>
     </div>

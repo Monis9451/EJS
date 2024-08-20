@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add new message</title>
+    <style>
+        h1{
+            text-align: center;
+            background-color: bisque;
+        }
+        form{
+            text-align: center;
+        }
+        .send{
+            background-color:dodgerblue;
+            color: white;
+            border-color:white;
+            padding: 5px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Write a new message here</h1>
+    <form method="post" action="/chats">
+        <input placeholder="Who are you?" name="from" style="border-color: dodgerblue; border-radius: 10px; padding: 5px;"><br><br>
+        <textarea name="msg" placeholder="Write your message here" rows="5" style="border-color: dodgerblue; border-radius: 10px; padding: 5px;"></textarea><br><br>
+        <input placeholder="Write receiver name?" name="to" style="border-color: dodgerblue; border-radius: 10px; padding: 5px;"><br><br>
+        <button class="send" style="cursor: pointer;">Send</button>
+    </form>
+</body>
+</html>

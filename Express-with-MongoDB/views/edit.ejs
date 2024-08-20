@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+    <style>
+        h1{
+            text-align: center;
+            background-color: bisque;
+        }
+        .chat{
+            background-color: rgb(199, 228, 253);
+            margin-left: 50px;
+            border-radius: 10px;
+            padding-left: 20px;
+            display: inline-block;
+            padding-bottom: 20px;
+        }
+        .message{
+            background-color: dodgerblue;
+            color: white;
+            padding: 10px 10px;
+            margin-right: 10px;
+            border-radius: 20px;
+            margin-top: 10px ;
+        }
+        form{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Edit your chat</h1>
+    <div class="chat" style="text-align: center;">
+        <div class="message">
+            <p><b><%= chat.from %></b>: <textarea><%= chat.msg %></textarea> </p>
+        </div>
+        <p>Received by: <i><%= chat.to %></i></p>
+        <hr>
+        <%= chat.created_at.toString().split(" ")[4] %><br>
+        <%= chat.created_at.toString().split(" ").slice(0,4).join(" ") %>
+        <form style="display: inline-block;" method="get" action="/chats/<%= chat._id %>/edit">
+            <button class="done"  style="cursor: pointer; text-align:center; background-color:  dodgerblue; color: white; border-color: white; padding: 5px; border-radius: 10px;">Done</button>
+        </form>
+    </div>
+</body>
+</html>

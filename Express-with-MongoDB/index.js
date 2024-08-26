@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const path = require('path');
 const Chat = require('./models/chat.js')
 const methodOverride = require("method-override")
+const ExpressError = require("./ExpressError")
 
 app.set("views", path.join(__dirname, "views"));
 app.set('view engine', 'ejs');
@@ -62,6 +63,12 @@ app.delete('/chats/del/:id', async(req, res)=>{
     await Chat.findByIdAndDelete(id).then((res)=>{console.log(res)})
     res.redirect('/chats')
 })
+
+//Error handling Middleware
+// app.use((err, req, res, next)=>{
+//     let {status = 500, message = "Some error Occured"} = err;
+//     res.status(status).send(message);
+// })
 
 // Chat.create({from:"Monis", to:'Mohsin', msg:"Uni kab ana ha?", created_at:new Date()})
 // .then((result)=>{
